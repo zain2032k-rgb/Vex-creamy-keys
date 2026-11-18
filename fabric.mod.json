@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "vexcreamykeys",
+  "version": "${version}",
+  "name": "VexCreamy Keys",
+  "description": "A creamy pastel keystrokes HUD with satisfying key sounds.",
+  "authors": ["VexCreamy"],
+  "environment": "client",
+  "entrypoints": { "client": ["com.vexcreamy.keys.VexCreamyKeys"] },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

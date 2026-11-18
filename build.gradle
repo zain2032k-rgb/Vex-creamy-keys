@@ -1,0 +1,28 @@
+plugins {
+    id 'net.fabricmc.fabric-loom-remap' version '1.14.1'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base { archivesName = 'VexCreamyKeys' }
+
+repositories { mavenCentral() }
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+    withSourcesJar()
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand 'version': project.version }
+}
