@@ -21,15 +21,16 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Setup Gradle
+      - name: Install Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.2.1'
 
       - name: Build Fabric Mod
-        run: chmod +x gradlew && ./gradlew build
+        run: gradle build
 
-      - name: Upload VexCreamy Keys JAR
+      - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: VexCreamy-Keys
-          path: build/libs/*.jar
-
+          path: '**/build/libs/*.jar'
